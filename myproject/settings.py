@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', 
+    'categories',
 ]
 
 MIDDLEWARE = [
@@ -72,12 +74,30 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+   # Smart Database Configuration
+if os.environ.get('DB_NAME'):
+       # VPS Environment (MariaDB)
+    DATABASES = {
+        'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': os.environ.get('DB_NAME'),
+           'USER': os.environ.get('DB_USER'),
+           'PASSWORD': os.environ.get('DB_PASSWORD'),
+           'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+           'PORT': os.environ.get('DB_PORT', '3306'),
+           'OPTIONS': {
+               'charset': 'utf8mb4',
+           }
+       }
+   }
+else:
+       # Local Environment (SQLite)
+    DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+       }
+   }
 
 
 # Password validation
