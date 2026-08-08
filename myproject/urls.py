@@ -9,4 +9,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/health/', health_check),
     path('api/', include('categories.urls')),
+    path('api/', include('expenses.urls')),
 ]
