@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/health/', health_check),
     path('api/', include('categories.urls')),
     path('api/', include('expenses.urls')),
+    path('api/', include('books.urls')), # new
 ]
