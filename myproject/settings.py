@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'categories',
     'expenses',
     'books',
+    'authors', 
 ]
 
 MIDDLEWARE = [
