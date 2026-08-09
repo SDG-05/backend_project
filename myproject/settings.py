@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'categories',
     'expenses',
+    'books',
+    'authors', 
 ]
 
 MIDDLEWARE = [
