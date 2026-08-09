@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'authors',
     'reports',
     'members', 
+    'urlshortener',
 ]
 
 MIDDLEWARE = [

@@ -16,6 +16,7 @@ urlpatterns = [
     path('api/', include('books.urls')),
     path('api/', include('reports.urls')),
     path('api/', include('authors.urls')),  # <-- Added by your teammate
+    path('api/', include('urlshortener.urls')),
     
     # API Documentation endpoints (drf-spectacular)
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
