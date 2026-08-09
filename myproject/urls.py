@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/', include('expenses.urls')),
     path('api/', include('books.urls')), # new
     path('api/authors/', include('authors.urls')),
+    path('api/', include('reports.urls')),
 ]
