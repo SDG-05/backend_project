@@ -3,3 +3,4 @@ gunicorn
 mysqlclient
 djangorestframework
 python-dotenv
+drf-spectacular
