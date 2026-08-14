@@ -5,6 +5,7 @@ from .controllers import (
     ByCategoryReportController,
     BudgetStatusController,
     BudgetListCreateController,
+    BudgetDetailController,
 )
 
 urlpatterns = [
@@ -13,4 +14,6 @@ urlpatterns = [
     path('reports/by-category/', ByCategoryReportController.as_view(), name='report-by-category'),
     path('reports/budget-status/', BudgetStatusController.as_view(), name='report-budget-status'),
     path('reports/budgets/', BudgetListCreateController.as_view(), name='budget-list-create'),
+    path('reports/budgets/<int:pk>/', BudgetDetailController.as_view(), name='budget-detail'),
+
 ]

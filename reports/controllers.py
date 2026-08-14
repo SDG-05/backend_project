@@ -31,3 +31,7 @@ class BudgetStatusController(APIView):
 class BudgetListCreateController(generics.ListCreateAPIView):
     queryset = Budget.objects.all().select_related('category')
     serializer_class = BudgetSerializer
+
+class BudgetDetailController(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Budget.objects.all().select_related('category')
+    serializer_class = BudgetSerializer
